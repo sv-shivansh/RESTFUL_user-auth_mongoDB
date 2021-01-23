@@ -1,6 +1,6 @@
 # RESTFUL_user-auth_mongoDB
 
-# to run
+# Start
 npm i
 
 npm start
