@@ -5,6 +5,10 @@ const UserSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'allUser'
     },
+    googleId:{
+        type: String,
+        required: true
+    },
     name:{
         type: String,
         required: true
@@ -13,14 +17,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    password:{
-        type: String,
-        required:true 
-    },
     date:{
         type: Date,
         default: Date.now
     }
 });
 
-module.exports = User = mongoose.model('user',UserSchema);
+module.exports = User = mongoose.model('user-google',UserSchema);
