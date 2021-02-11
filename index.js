@@ -10,7 +10,6 @@ const middleware = require("./middleware/auth");
 const connectDB = require("./config/db");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
-const publish = require("./models/publish");
 require("./passport-setup");
 // @initialize app
 const app = express();
@@ -123,8 +122,8 @@ app.get("/getToken", async (req, res) => {
   res.send("HI");
 });
 app.get("/getToken/:id", async (req, res) => {
-  let user1 = await User_google.findOne({ _id: req.params.id });
   try {
+    let user1 = await User_google.findOne({ _id: req.params.id });
     const payload = {
       user: {
         id: user1.user_id,
@@ -135,7 +134,7 @@ app.get("/getToken/:id", async (req, res) => {
       res.json({ token });
     });
   } catch (err) {
-    res.send("server error");
+    res.send("Invalid Token");
   }
 });
 app.get("/api/user", middleware, async (req, res) => {

@@ -8,7 +8,7 @@ passport.serializeUser(function (user, done) {
 });
 
 passport.deserializeUser(function (id, done) {
-  User.findById(id, (err, user) => done(err, user));
+  allUser.findById(id, (err, user) => done(err, user));
 });
 passport.use(
   new GoogleStrategy(
